@@ -1,0 +1,96 @@
+--- kitchensink.cpp.orig	2013-09-26 17:00:57.000000000 +0200
++++ kitchensink.cpp	2013-09-26 17:00:19.000000000 +0200
+@@ -42,10 +42,15 @@
+ #include <limits>
+ #include "ofxsImageEffect.h"
+ #include "ofxsMultiThread.h"
++#if defined(WIN32) || defined(WIN64)
+ #include "ofxsHWNDInteract.h"
+ 
+ #include <Windows.h>
+ #include <Tchar.h>
++#else
++#include <unistd.h>
++#define sprintf_s snprintf
++#endif
+ 
+ #include "../include/ofxsProcessing.H"
+ 
+@@ -91,6 +96,7 @@
+     Int2DValue(int vx, int vy) { x = vx; y = vy; }
+ } Int2DValue;
+ 
++#if defined(WIN32) || defined(WIN64)
+ ////////////////////////////////////////////////////////////////////////////////
+ // a dumb interact that just draw's a square you can drag
+ 
+@@ -112,6 +118,7 @@
+ 
+   void setGridPosition(double x, double y);
+ };
++#endif
+ 
+ ////////////////////////////////////////////////////////////////////////////////
+ // base class for the kitchen sink
+@@ -353,11 +360,13 @@
+   /** @brief The get RoD action.  We flag an infinite rod */
+   bool getRegionOfDefinition(const OFX::RegionOfDefinitionArguments &args, OfxRectD &rod);
+ 
++#if defined(WIN32) || defined(WIN64)
+   /** @brief we define a custom about box */
+   bool invokeAbout();
+ 
+   /** @brief we define a custom help */
+   bool invokeHelp();
++#endif
+ };
+ 
+ 
+@@ -546,7 +555,11 @@
+       progressStart("I will count to ten...");
+       for(int i = 0; i < 10; i++)
+       {
++#if defined(WIN32) || defined(WIN64)
+           Sleep(1000);
++#else
++          usleep(1000000);
++#endif
+           if(! progressUpdate((i + 1) * 0.1))
+               break;
+       }
+@@ -630,6 +643,7 @@
+   }
+ }
+ 
++#if defined(WIN32) || defined(WIN64)
+ bool
+ KitchenSinkPlugin::invokeAbout()
+ {
+@@ -758,6 +772,7 @@
+     if(gridPosition != NULL)
+         gridPosition->setValue(x, y);
+ }
++#endif // #if defined(WIN32) || defined(WIN64)
+ 
+ 
+ 
+@@ -765,7 +780,9 @@
+ 
+ using namespace OFX;
+ 
++#if defined(WIN32) || defined(WIN64)
+ class KitchenSinkInteractDescriptor : public DefaultEffectHWNDInteractDescriptor<KitchenSinkInteractDescriptor, KitchenSinkInteract> {};
++#endif // #if defined(WIN32) || defined(WIN64)
+ 
+ void KitchenSinkExamplePluginFactory::describe(OFX::ImageEffectDescriptor &desc) 
+ {
+@@ -790,7 +807,9 @@
+   desc.setSupportsMultipleClipPARs(false);
+   desc.setRenderTwiceAlways(false);
+ 
++#if defined(WIN32) || defined(WIN64)
+   desc.setHWNDInteractDescriptor( new KitchenSinkInteractDescriptor);
++#endif // #if defined(WIN32) || defined(WIN64)
+ }
+ 
+ void KitchenSinkExamplePluginFactory::describeInContext(OFX::ImageEffectDescriptor &desc, ContextEnum context) 
