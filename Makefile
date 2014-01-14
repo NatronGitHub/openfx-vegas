@@ -1,18 +1,26 @@
 SUBDIRS = Generator-Checkerboard KitchenSink TimeSlice
 
-default : 
-	@ echo making sub projects... $(SUBDIRS)
-	for i in $(SUBDIRS) ; do cd $$i; make ; cd ..; done
+all: subdirs
 
-.PHONY: clean distclean
+.PHONY: subdirs clean distclean $(SUBDIRS)
+
+subdirs: $(SUBDIRS)
+
+$(SUBDIRS):
+	$(MAKE) -C $@
 
 clean :
-	for i in $(SUBDIRS) ; do cd $$i; make clean; cd ..; done
+	for i in $(SUBDIRS) ; do \
+	  $(MAKE) -C $$i clean; \
+	done
 
 SonyOfxPIDK: video_plugin_kit_OFX.zip
 	unzip -a $<
 
 distclean: clean
+	for i in $(SUBDIRS) ; do \
+	  $(MAKE) -C $$i distclean; \
+	done
 	rm -rf SonyOfxPIDK
 
 video_plugin_kit_OFX.zip:

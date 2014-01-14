@@ -1,6 +1,10 @@
---- kitchensink.cpp.orig	2013-09-26 17:00:57.000000000 +0200
-+++ kitchensink.cpp	2013-09-26 17:00:19.000000000 +0200
-@@ -42,10 +42,15 @@
+--- kitchensink.cpp.orig	2014-01-14 19:20:11.000000000 +0100
++++ kitchensink.cpp	2014-01-14 19:19:53.000000000 +0100
+@@ -39,13 +39,19 @@
+ 
+ 
+ #include <stdio.h>
++#include <stdlib.h>
  #include <limits>
  #include "ofxsImageEffect.h"
  #include "ofxsMultiThread.h"
@@ -16,7 +20,7 @@
  
  #include "../include/ofxsProcessing.H"
  
-@@ -91,6 +96,7 @@
+@@ -91,6 +97,7 @@
      Int2DValue(int vx, int vy) { x = vx; y = vy; }
  } Int2DValue;
  
@@ -24,7 +28,7 @@
  ////////////////////////////////////////////////////////////////////////////////
  // a dumb interact that just draw's a square you can drag
  
-@@ -112,6 +118,7 @@
+@@ -112,6 +119,7 @@
  
    void setGridPosition(double x, double y);
  };
@@ -32,7 +36,7 @@
  
  ////////////////////////////////////////////////////////////////////////////////
  // base class for the kitchen sink
-@@ -353,11 +360,13 @@
+@@ -353,11 +361,13 @@
    /** @brief The get RoD action.  We flag an infinite rod */
    bool getRegionOfDefinition(const OFX::RegionOfDefinitionArguments &args, OfxRectD &rod);
  
@@ -46,7 +50,7 @@
  };
  
  
-@@ -546,7 +555,11 @@
+@@ -546,7 +556,11 @@
        progressStart("I will count to ten...");
        for(int i = 0; i < 10; i++)
        {
@@ -58,7 +62,7 @@
            if(! progressUpdate((i + 1) * 0.1))
                break;
        }
-@@ -630,6 +643,7 @@
+@@ -630,6 +644,7 @@
    }
  }
  
@@ -66,7 +70,7 @@
  bool
  KitchenSinkPlugin::invokeAbout()
  {
-@@ -758,6 +772,7 @@
+@@ -758,6 +773,7 @@
      if(gridPosition != NULL)
          gridPosition->setValue(x, y);
  }
@@ -74,7 +78,7 @@
  
  
  
-@@ -765,7 +780,9 @@
+@@ -765,7 +781,9 @@
  
  using namespace OFX;
  
@@ -84,7 +88,7 @@
  
  void KitchenSinkExamplePluginFactory::describe(OFX::ImageEffectDescriptor &desc) 
  {
-@@ -790,7 +807,9 @@
+@@ -790,7 +808,9 @@
    desc.setSupportsMultipleClipPARs(false);
    desc.setRenderTwiceAlways(false);
  

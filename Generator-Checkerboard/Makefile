@@ -10,4 +10,9 @@ checkerboard.cpp: ../SonyOfxPIDK/Plugins/Generator-Checkerboard/checkerboard.cpp
 ../SonyOfxPIDK/Plugins/Generator-Checkerboard/checkerboard.cpp:
 	(cd ..; $(MAKE) SonyOfxPIDK)
 
+.PHONY: distclean
+
+distclean:
+	rm checkerboard.cpp Info.plist
+
 CXXFLAGS += -DOFX_EXTENSIONS_VEGAS

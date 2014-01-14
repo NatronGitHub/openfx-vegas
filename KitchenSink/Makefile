@@ -10,4 +10,9 @@ kitchensink.cpp: ../SonyOfxPIDK/Plugins/KitchenSink/kitchensink.cpp ../SonyOfxPI
 ../SonyOfxPIDK/Plugins/KitchenSink/kitchensink.cpp:
 	(cd ..; $(MAKE) SonyOfxPIDK)
 
+.PHONY: distclean
+
+distclean:
+	rm kitchensink.cpp Info.plist
+
 CXXFLAGS += -DOFX_EXTENSIONS_VEGAS
