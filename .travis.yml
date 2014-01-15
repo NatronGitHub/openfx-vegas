@@ -4,4 +4,4 @@ compiler:
   - clang
 before_install:
   - git submodule update --init --recursive
-script: make
+script: make DEBUGFLAGS=-O3 BITS=64
