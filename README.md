@@ -1,5 +1,8 @@
+OpenFX-Vegas [![Build Status](https://api.travis-ci.org/devernay/openfx-vegas.png?branch=master)](https://travis-ci.org/devernay/openfx) [![Coverage Status](https://coveralls.io/repos/devernay/openfx-vegas/badge.png?branch=master)](https://coveralls.io/r/devernay/openfx?branch=master) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/devernay/openfx-vegas/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+============
+
 Sample OFX plugins from the Sony Vegas SDK, ported to OSX and Linux
-===================================================================
+-------------------------------------------------------------------
 
 These plugins were adapted to compile and work on Linux and OSX.
 
