@@ -13,3 +13,7 @@ or "make BITS=64" for the 64-bits version.
 
 To compile the release version, type "make DEBUGFLAGS=-O3" for the 32-bits version,
 or "make BITS=64 DEBUGFLAGS=-O3" for the 64-bits version .
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/devernay/openfx-vegas/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
