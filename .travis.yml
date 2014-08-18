@@ -11,4 +11,4 @@ compiler:
 
 before_install:
   - git submodule update --init --recursive
-script: make BITS=64
+script: make CONFIG=debug
