@@ -15,4 +15,4 @@ kitchensink.cpp: ../SonyOfxPIDK/Plugins/KitchenSink/kitchensink.cpp ../SonyOfxPI
 distclean:
 	rm kitchensink.cpp Info.plist
 
-CXXFLAGS += -DOFX_EXTENSIONS_VEGAS
+CXXFLAGS += -DOFX_EXTENSIONS_VEGAS -DOFXS_MANUAL_REGISTRATION

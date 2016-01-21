@@ -15,4 +15,4 @@ timeslice.cpp: ../SonyOfxPIDK/Plugins/TimeSlice/timeslice.cpp ../SonyOfxPIDK/Plu
 distclean:
 	rm timeslice.cpp Info.plist
 
-CXXFLAGS += -DOFX_EXTENSIONS_VEGAS
+CXXFLAGS += -DOFX_EXTENSIONS_VEGAS -DOFXS_MANUAL_REGISTRATION

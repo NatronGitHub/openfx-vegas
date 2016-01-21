@@ -15,4 +15,4 @@ checkerboard.cpp: ../SonyOfxPIDK/Plugins/Generator-Checkerboard/checkerboard.cpp
 distclean:
 	rm checkerboard.cpp Info.plist
 
-CXXFLAGS += -DOFX_EXTENSIONS_VEGAS
+CXXFLAGS += -DOFX_EXTENSIONS_VEGAS -DOFXS_MANUAL_REGISTRATION
