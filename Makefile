@@ -24,5 +24,5 @@ distclean: clean
 	rm -rf SonyOfxPIDK
 
 video_plugin_kit_OFX.zip:
-	@echo "Downloading the 'Video Plug-In Development Kit (OFX)' from Sony Development Kits Download Page <http://www.sonycreativesoftware.com/download/devkits>"
-	curl -O http://dspcdn.sonycreativesoftware.com/dev/video_plugin_kit_OFX.zip
+	@echo "Downloading the 'Video Plug-In Development Kit (OFX)' from Sony Development Kits Download Page <https://web.archive.org/web/20140122213530/http://www.sonycreativesoftware.com/download/devkits>"
+	curl -O https://web.archive.org/web/20131019220819if_/http://dspcdn.sonycreativesoftware.com/dev/video_plugin_kit_OFX.zip
